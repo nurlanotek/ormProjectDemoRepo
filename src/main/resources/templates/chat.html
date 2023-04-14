@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+</head>
+<body>
+    <div sec:authorize="isAuthenticated()">
+        <a href="javascript: document.logoutForm.submit()" class="dropdown-toggle">Log out</a>
+        <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+            <input hidden type="submit" value="Sign Out" />
+        </form>
+    </div>
+
+    <form action="#" th:object="${message}" method="POST" th:action="@{'chat'}">
+        <label for="newMessageText">Submit a new message: </label>
+        <input type="text" id="newMessageText" name="newMessageText" th:field="*{messagetext}">
+        <input type="submit">
+    </form>
+
+    <p id="pChatMessages" th:each="msg : ${greetings}" th:text="${msg}">Hello, chat!</p>
+</body>
+</html>

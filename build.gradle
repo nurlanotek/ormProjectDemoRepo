@@ -1,0 +1,34 @@
+plugins {
+    id 'org.springframework.boot' version '2.6.2'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    // H2 database and MyBatis ORM depencencies
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.1'
+    runtimeOnly 'com.h2database:h2'
+    // spring security dependencies
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.security:spring-security-test'
+    // bootStrap dependencies
+    implementation 'org.webjars.npm:github-com-twbs-bootstrap:5.0.2'
+    // selenium dependencies
+    implementation 'org.seleniumhq.selenium:selenium-java:4.1.1'
+    implementation 'io.github.bonigarcia:webdrivermanager:5.0.2'1}
+
+test {
+    useJUnitPlatform()
+}
